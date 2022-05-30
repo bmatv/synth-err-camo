@@ -28,7 +28,8 @@ Below (Fig. 1) is a standard 24h solution for the CAMO site for 2010.001 with no
 
 
 
-| First Header  | Second Header | Third Header  |
-| ------------- | ------------- | ------------- |
-|![](camo2010.001_3.2/APR_Z.png)|![](camo2010.001_3.2/EST_Z.png)|![](camo2010.001_3.2/diff_EST_APR_Z.png)|
-*Figure 1. CAMO Z component coordinates. Left to right: a priori, estimated, difference between the estimated and a priori. No synth signal was added, 3.2 mm/sqrt(s) and 0.1 mm/sqrt(s) process noise values were used for coordinates and troposphere.*
+ First Header  | Second Header | Third Header  
+ ------------- | ------------- | ------------- 
+![](camo2010.001_3.2/APR_Z.png)|![](camo2010.001_3.2/EST_Z.png)|![](camo2010.001_3.2/diff_EST_APR_Z.png)
+
+***Figure 1.** CAMO Z component coordinates. Left to right: a priori, estimated, difference between the estimated and a priori. No synth signal was added, 3.2 mm/sqrt(s) and 0.1 mm/sqrt(s) process noise values were used for coordinates and troposphere.*
