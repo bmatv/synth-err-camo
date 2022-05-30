@@ -4,7 +4,7 @@ gd2e.py \
       -recList CAMO \
       -runType PPP \
       -orbClkDir ../data/GNSSinitValues \
-      -treeSequenceDir ../data/Trees/3.2e-3 \
+      -treeSequenceDir ../data/Trees/3.2 \
       -tdpInput ../data/tropNom/2010/001/30h_tropNominalOut_VMF1.tdp \
       -staDb ../data/camo.staDb \
       -gdCov
