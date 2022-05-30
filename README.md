@@ -27,9 +27,34 @@ Below (Fig. 1) is a standard 24h solution for the CAMO site for 2010.001 with no
 
 
 
-
- First Header  | Second Header | Third Header  
+<!-- Fig 1 -->
+|  |  |  |
  ------------- | ------------- | ------------- 
 ![](camo2010.001_3.2/APR_Z.png)|![](camo2010.001_3.2/EST_Z.png)|![](camo2010.001_3.2/diff_EST_APR_Z.png)
 
 ***Figure 1.** CAMO Z component coordinates. Left to right: a priori, estimated, difference between the estimated and a priori. No synth signal was added, 3.2 mm/sqrt(s) and 0.1 mm/sqrt(s) process noise values were used for coordinates and troposphere.*
+
+
+
+
+<!-- Fig 2 -->
+|  |  |  |
+ ------------- | ------------- | ------------- 
+![](camo2010.001_synth_1e-6/APR_Z.png)|![](camo2010.001_synth_1e-6/EST_Z.png)|![](camo2010.001_synth_1e-6/diff_EST_APR_Z.png)
+
+***Figure 2.** CAMO Z component coordinates. Left to right: a priori, estimated, difference between the estimated and a priori. 6 mm synth signal was added, 1e-6 mm/sqrt(s) and 0.1 mm/sqrt(s) process noise values were used for coordinates and troposphere. The synthetic  signal gets completely eliminated by differencing.*
+
+<!-- Fig 3 -->
+|  |  |  |
+ ------------- | ------------- | ------------- 
+![](camo2010.001_synth_3.2/APR_Z.png)|![](camo2010.001_synth_3.2/EST_Z.png)|![](camo2010.001_synth_3.2/diff_EST_APR_Z.png)
+
+***Figure 3.** CAMO Z component coordinates. Left to right: a priori, estimated, difference between the estimated and a priori. 6 mm synth signal was added, 3.2 mm/sqrt(s) and 0.1 mm/sqrt(s) process noise values were used for coordinates and troposphere. Synthetic signal is being added by differencing estimates and a prioris.*
+
+
+<!-- Fig 4 -->
+|  |
+ ------------- |
+![](cmp_Z.png)|
+
+***Figure 4.** CAMO Z component coordinates difference between estimated coordinates of solution with 6 mm synthetic signal added (Fig. 3) and solution with no synthetic signal (Fig. 1). Both used 3.2 mm/sqrt(s) and 0.1 mm/sqrt(s) process noise values for coordinates and troposphere. As seen, the residual synthetic signal is ~0.01 mm in magnitude.*
