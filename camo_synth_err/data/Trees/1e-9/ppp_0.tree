@@ -1,0 +1,307 @@
+BDS_GEO ==
+  Antennas 
+    Antenna1 
+      XyzFile $GNSSXYZ_FILE
+  Clk 
+    Bias 0.0
+    Model On
+  Models 
+    AttitudeModel orbitNormal
+  State 
+    SatelliteTimeSeries 
+      BufferTime 10800
+      InterpOrder 11
+      PosGOAFile $GNSSORB_POS
+      PosGOAQuaternions Off
+      ShadowFinder On
+      Strict On
+BDS_IGSO_MEO ==
+  Antennas 
+    Antenna1 
+      XyzFile $GNSSXYZ_FILE
+  Clk 
+    Bias 0.0
+    Model On
+  Models 
+    AttitudeModel yawNormal
+  State 
+    SatelliteTimeSeries 
+      BufferTime 10800
+      InterpOrder 11
+      PosGOAFile $GNSSORB_POS
+      PosGOAQuaternions Off
+      ShadowFinder On
+      Strict On
+DATARECORD_FILE == dataRecordFile
+FILTER_STOP ==
+GALILEO_Common_Settings ==
+  Antennas 
+    Antenna1 
+      XyzFile $GNSSXYZ_FILE
+  Clk 
+    Bias 0.0
+    Model On
+  State 
+    SatelliteTimeSeries 
+      BufferTime 10800
+      InterpOrder 11
+      PosGOAFile $GNSSORB_POS
+      PosGOAQuaternions Off
+      ShadowFinder On
+      Strict On
+GAL_FOC_Model ==
+  AttitudeModel galileoIOV
+GAL_IOV_Model ==
+  AttitudeModel galileoIOV
+GEOPFILE ==
+GLOBAL_DATA_RATE == 300
+GLOBAL_EPOCH ==
+GLONASS_Common_Settings ==
+  Antennas 
+    Antenna1 
+      XyzFile $GNSSXYZ_FILE
+  Clk 
+    Bias 0.0
+    Model On
+  State 
+    SatelliteTimeSeries 
+      BufferTime 10800
+      InterpOrder 11
+      PosGOAFile $GNSSORB_POS
+      PosGOAQuaternions Off
+      ShadowFinder On
+      Strict On
+GLO_K1_Model ==
+  AttitudeModel glonassM
+GLO_M_Model ==
+  AttitudeModel glonassM
+GNSSLIST ==
+GNSSORB_POS ==
+GNSSXYZ_FILE ==
+GNSS_ANT_OFF_PCM ==
+GNSS_WLPB ==
+GPS_BlockIIA_Model ==
+  AttitudeModel gpsBlockII
+GPS_BlockIIF_Model ==
+  AttitudeModel gpsBlockIIF
+GPS_BlockIII_Model ==
+  AttitudeModel gpsBlockIIF
+GPS_BlockIIR_Model ==
+  AttitudeModel gpsBlockIIR
+GPS_BlockII_Model ==
+  AttitudeModel gpsBlockII
+GPS_BlockI_Model ==
+  AttitudeModel gpsBlockI
+GPS_Common_Settings ==
+  Antennas 
+    Antenna1 
+      XyzFile $GNSSXYZ_FILE
+  Clk 
+    Bias 0.0
+    Model On
+  State 
+    SatelliteTimeSeries 
+      BufferTime 10800
+      InterpOrder 11
+      PosGOAFile $GNSSORB_POS
+      PosGOAQuaternions Off
+      ShadowFinder On
+      Strict On
+GRN_STATION_CLK_WHITE ==
+  Antennas 
+    Antenna1 
+      XyzFile $XYZFILE_STATIONS
+  Clk 
+    Bias 0.0
+      StochasticAdj 3.0e8 3.0e8 $GLOBAL_DATA_RATE WHITENOISE
+    Model On
+  State 
+    Pos 
+      StochasticAdj 1.0 1.0e-09 $GLOBAL_DATA_RATE RANDOMWALK
+  Tides 
+    All On
+    OceanLoad On
+    OceanLoadFile ../data/FES2004_GBe_cm.blq
+    PoleTide On
+    SolidTide On
+  Trop 
+    GradEast 0.0
+      StochasticAdj 1.0 5e-6 $GLOBAL_DATA_RATE RANDOMWALK
+    GradNorth 0.0
+      StochasticAdj 1.0 5e-6 $GLOBAL_DATA_RATE RANDOMWALK
+    Mapping VMF1
+    Model On
+    WetZ 0.1
+      StochasticAdj 0.5 1.0e-04 $GLOBAL_DATA_RATE RANDOMWALK
+Global 
+  AmbRes On
+    Mode inSmoother
+    OutputConstraintsFile constraints.txt
+    SettingsForGround 
+      BackgroundLevel 0.5
+      ComputeAllNLSigmas 
+      GlobalNarrowLaneSigmaFactor 6.0
+      InputWlpb 
+        File $GNSS_WLPB
+      MinOverlap 3600.0
+      NarrowlaneConfidence 0.99
+      NarrowlaneInflation 1.5
+      NarrowlaneMaxDistanceToNearestInt 0.2
+      NarrowlaneMaxSigma 0.1
+      Priority 0
+      SmootherIterations 1
+      UseNLOverlapSigmas 
+      WidelaneConfidence 0.750
+      WidelaneInflation 0.1
+      WidelaneMaxDistanceToNearestInt 0.3
+      WidelaneMaxSigma 1.0
+    StatsFile ambres.stats
+  DataTypes 
+    IonoFreeC_1P_2P 
+      DataLinkSpec_PC_GLO 
+        DataBias 
+          DataBiasReference GLONASS
+          StochasticAdj 1.0e4 3.40e-4 DATADRIVEN RANDOMWALK
+            UseItOrLoseItInterval 3600
+        ElDepWeight SqrtSin
+        ElMin 7
+        PostSmoothEdit 2e5 2e4 12.5 10 5 2.5
+        SignalPath 
+          Platforms .* R.*
+      DataLinkSpec_PC_GPS 
+        ElDepWeight SqrtSin
+        ElMin 7
+        PostSmoothEdit 2e5 2e4 12.5 10 5 2.5
+        SignalPath 
+          Platforms .* GPS.*
+    IonoFreeL_1P_2P 
+      DataLinkSpec_LC_GLO 
+        DataBias 
+          StochasticAdj 3.0e8 3.0e8 DATADRIVEN WHITENOISE
+            UseItOrLoseItInterval 3600
+        ElDepWeight SqrtSin
+        ElMin 7
+        PostSmoothEdit 2e5 2e4 0.25 0.1 0.05 .025
+        SignalPath 
+          Platforms .* R.*
+      DataLinkSpec_LC_GPS 
+        DataBias 
+          StochasticAdj 3.0e8 3.0e8 DATADRIVEN WHITENOISE
+            UseItOrLoseItInterval 3600
+        ElDepWeight SqrtSin
+        ElMin 7
+        PostSmoothEdit 2e5 2e4 0.125 0.1 0.05 .025
+        SignalPath 
+          Platforms .* GPS.*
+    PostSmoothEditGlobals 
+      MaxIteration 5
+  EarthOrientation 
+    GeopTable $GEOPFILE
+  Filter 
+    Start $GLOBAL_EPOCH
+    Stop $FILTER_STOP
+  FilterConfig 
+    FilterParametersAddRemove 
+      LinkBias Off
+    Parallel 
+      NumThreads 1
+    SmootherCovariance 
+      CalculationMethod InverseSriRows
+      Station $StationCovOnOff
+    SmootherFormalError 
+      SigmaRegex ^\.
+    SmootherPostProcess 
+      CovarianceFilename smoothFinal.cov
+        TerminalEpochOnly On
+      Smoother On
+      TdpFile $SMOOTHTDP
+  Input 
+    TimeDepParms 
+      File 
+        BufferTime 3600
+        MaxExtrap 0
+        Path $TDP_INPUT
+      NameFilter 
+        Satellite\.[A-Z]\w*.*\.Clk\.Bias 
+          Degree 0
+          MaxFormalError 0.12
+          Strict On
+            MaxDx 1.0e-6
+        Satellite\.[C]\w*.*\.Clk\.Bias
+          Degree 0
+          MaxFormalError 0.4
+          Strict On
+            MaxDx 1.0e-6
+        Station\..*\.State\.Pos\..*  
+        Station\..*\.Trop.*  
+  Ion2nd On
+    MagneticModel IGRF
+      IgrfCoefficientsFile $GOA_VAR/etc/igrf/igrf11coeffs.txt
+    StecModel IONEX
+      IonexFile ../data/cod0010.10i_merged 
+        ShellHeight 600.0e3
+  Logging 
+    Alert cerr
+    Event cout
+    Warn cout
+  MeasGather 
+    DecimateSmoothInterval $GLOBAL_DATA_RATE
+    FileName $DATARECORD_FILE
+    HonorEditorFlags On
+    Type DATARECORD
+  Output 
+    Residual 
+      Postfit 
+        File postfitResiduals.out
+      Prefit 
+        File prefitResiduals.out
+    TimeDepParms 
+      EstimatedOnly Off
+      File filter.tdp
+      NameFilter ^\.
+OCEANLOAD ==
+QZSS_001_IGSO_Model ==
+  AttitudeModel yawNormal
+    Cutover 20.0
+QZSS_002_IGSO_Model ==
+  AttitudeModel gpsBlockIIR
+QZSS_003_GEO_Model ==
+  AttitudeModel orbitNormal
+QZSS_004_IGSO_Model ==
+  AttitudeModel gpsBlockIIR
+QZSS_Common_Settings ==
+  Antennas 
+    Antenna1 
+      XyzFile $GNSSXYZ_FILE
+  Clk 
+    Bias 0.0
+    Model On
+  State 
+    SatelliteTimeSeries 
+      BufferTime 10800
+      InterpOrder 11
+      PosGOAFile $GNSSORB_POS
+      PosGOAQuaternions Off
+      ShadowFinder On
+      Strict On
+SMOOTHPOS ==
+SMOOTHTDP ==
+STATIONLIST ==
+STA_DB ==
+Satellite `cat $GNSSLIST`
+Satellite `pcm.py -file $GNSS_ANT_OFF_PCM -epoch $GLOBAL_EPOCH -sat $GNSSLIST -param Antenna1`
+  Common 
+    YawBiasFile $GOA_VAR/etc/yawBiasTable.pcm
+    YawRateFile $GOA_VAR/etc/nominalYawRates.pcm
+      TimeDepParms .Global.Input.TimeDepParms
+        BufferTime 108000
+        MaxExtrap 108000
+Self 
+  File debug.tree
+  Metadata On
+Station `cat $STATIONLIST`
+Station `staDb2TreeIn.py -s $STATIONLIST -y2kSecs $GLOBAL_EPOCH -d $STA_DB`
+  VMF1dataDir ../data/VMF1_Products
+StationCovOnOff ==
+TDP_INPUT ==
+XYZFILE_STATIONS ==

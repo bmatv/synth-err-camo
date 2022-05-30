@@ -1,0 +1,6 @@
+Frame                         IGS14
+AntennaCalibration            SAT  igs14_1958.xyz  https://sideshow.jpl.nasa.gov/pub/gipsy_files/gipsy_params/antennaCalsGNSS/igs14_1958.xyz.gz
+AntennaCalibration            GRN  igs14_1958.atx  https://sideshow.jpl.nasa.gov/pub/gipsy_files/gipsy_params/antennaCalsGNSS/igs14_1958.atx.gz
+AntennaCalibration            PCM  igs14_1958.pcm  https://sideshow.jpl.nasa.gov/pub/gipsy_files/gipsy_params/antennaCalsGNSS/igs14_1958.pcm.gz
+ReferenceClock                USN3
+DateGenerated                 2017-11-24 15:43:26

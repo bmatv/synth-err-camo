@@ -1,0 +1,10 @@
+#!/bin/sh
+gd2e.py \
+      -drEditedFile ../data/rnx_dr/2010/001/camo0010.10d.dr.gz \
+      -recList CAMO \
+      -runType PPP \
+      -orbClkDir ../data/GNSSinitValues \
+      -treeSequenceDir ../data/Trees/3.2e-3 \
+      -tdpInput ../data/tropNom/2010/001/30h_tropNominalOut_VMF1.tdp_penna \
+      -staDb ../data/camo.staDb \
+      -gdCov
