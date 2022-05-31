@@ -1,5 +1,7 @@
 # synth-err-camo
-A set of test examples for GipsyX to illustrate synth_err issue (Matviichuk et al., 2022)
+A set of test examples for GipsyX to illustrate the inverted nature of the synth_err parameter in Matviichuk et al (2022) compared to that demonstrated in the process noise tests of Penna et al (2015). This repository contains a set of solutions that provide evidence for the potential explanation of the issue - the resulting coordinates were differenced with the respective a priori position at each epoch and not with a constant a priori position, same for all epochs. Similar issue could arise if extracting each second line from the output of GIPSY6's `tdp2llh`.
+
+---
 
 The solutions can be replicated using the run scripts in each directory. Directories have suffixes in their names which correspond to the coordinate process noise values in mm and also a “synth” suffix if a priori values contain synthetic signals. 
 
